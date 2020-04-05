@@ -33,11 +33,20 @@
         <junit4.version>4.12</junit4.version>
         <postgres.driver.version>42.2.9</postgres.driver.version>
         <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+        <pact.version>4.0.8</pact.version>
 
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-consumer-junit -->
+            <dependency>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-consumer-junit</artifactId>
+                <version>${pact.version}</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
