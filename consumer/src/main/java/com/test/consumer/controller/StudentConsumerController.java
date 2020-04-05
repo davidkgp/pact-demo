@@ -1,7 +1,8 @@
-package com.test.provider.controller;
+package com.test.consumer.controller;
 
-import com.test.provider.dto.Student;
-import com.test.provider.service.StudentService;
+
+import com.test.consumer.controller.dto.Student;
+import com.test.consumer.services.StudentConsumerService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +13,9 @@ import java.util.Set;
 
 @RestController
 @AllArgsConstructor
-public class StudentApplicationController {
+public class StudentConsumerController {
 
-    StudentService studentService;
+    StudentConsumerService studentConsumerService;
 
     @GetMapping("keepAlive")
     public ResponseEntity<String> keepAlive() {
@@ -24,14 +25,14 @@ public class StudentApplicationController {
     @GetMapping("student/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable("id") String rollId) {
 
-        return studentService.getStudent(rollId).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+        return studentConsumerService.getStudent(rollId).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
 
     }
 
     @GetMapping("students")
     public ResponseEntity<Set<Student>> getStudent() {
 
-        Set<Student> studentSet = studentService.getStudents();
+        Set<Student> studentSet = studentConsumerService.getStudents();
 
         return studentSet != null && !studentSet.isEmpty() ? ResponseEntity.ok(studentSet) : ResponseEntity.notFound().build();
 
