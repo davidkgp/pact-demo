@@ -14,9 +14,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -35,7 +35,7 @@ public class ConsumerTest {
     public RequestResponsePact defineExpectation(PactDslWithProvider builder) {
         return builder
                 .uponReceiving("get Student data")
-                .path("/myconsumer/student/A123")
+                .path("/myapp/student/A123")
                 .method("GET")
                 .willRespondWith()
                 .status(200)
@@ -56,7 +56,7 @@ public class ConsumerTest {
     }
 }
 
-@Configuration
+@TestConfiguration
 class MyTestConfig {
 
     @Bean
@@ -66,16 +66,16 @@ class MyTestConfig {
 
     @Bean
     public ProviderConnector getProviderConnector(ObjectMapper objectMapper, RestTemplateBuilder restTemplateBuilder) {
-        return new ProviderConnector("http://localhost:8066/myconsumer", restTemplateBuilder, objectMapper);
+        return new ProviderConnector("http://localhost:8066/myapp", restTemplateBuilder, objectMapper);
     }
 
     @Bean
-    public ObjectMapper getObjectMapper(){
+    public ObjectMapper getObjectMapper() {
         return new ObjectMapper();
     }
 
     @Bean
-    public RestTemplateBuilder getRestTemplateBuilder(){
+    public RestTemplateBuilder getRestTemplateBuilder() {
         return new RestTemplateBuilder();
     }
 

@@ -34,6 +34,7 @@
         <postgres.driver.version>42.2.9</postgres.driver.version>
         <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
         <pact.version>4.0.8</pact.version>
+        <pact.provider.version>3.6.14</pact.provider.version>
 
     </properties>
 
@@ -45,6 +46,14 @@
                 <groupId>au.com.dius</groupId>
                 <artifactId>pact-jvm-consumer-junit</artifactId>
                 <version>${pact.version}</version>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-consumer-junit -->
+            <dependency>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-junit_2.12</artifactId>
+                <version>${pact.provider.version}</version>
             </dependency>
 
 

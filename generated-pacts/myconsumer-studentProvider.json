@@ -10,7 +10,7 @@
       "description": "get Student data",
       "request": {
         "method": "GET",
-        "path": "/myconsumer/student/A123"
+        "path": "/myapp/student/A123"
       },
       "response": {
         "status": 200,
