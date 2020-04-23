@@ -7,6 +7,97 @@
   },
   "interactions": [
     {
+      "description": "get Student data with state and map",
+      "request": {
+        "method": "GET",
+        "path": "/myapp/student/T523"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "fullName": "Terry Sommers",
+          "age": 100,
+          "rollId": "T523"
+        },
+        "matchingRules": {
+          "body": {
+            "$.rollId": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^([A-Z])[0-9]{3}$"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.age": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            }
+          },
+          "header": {
+            "Content-Type": {
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json(;\\s?charset=[\\w\\-]+)?"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        },
+        "generators": {
+          "body": {
+            "$.age": {
+              "type": "RandomInt",
+              "min": 0,
+              "max": 2147483647
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "SomeStateWithMap",
+          "params": {
+            "Mykey1": {
+              "rollId": "T523",
+              "fullName": "Terry Sommers",
+              "age": 27
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "get Student data with state",
+      "request": {
+        "method": "GET",
+        "path": "/myapp/student/Z123"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "rollId": "Z123",
+          "fullName": "Jerry Van Dam",
+          "age": 27
+        }
+      },
+      "providerStates": [
+        {
+          "name": "SomeState"
+        }
+      ]
+    },
+    {
       "description": "get Student data",
       "request": {
         "method": "GET",
