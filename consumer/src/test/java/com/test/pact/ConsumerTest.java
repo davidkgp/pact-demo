@@ -53,7 +53,7 @@ public class ConsumerTest {
     public RequestResponsePact defineExpectationWithState(PactDslWithProvider builder) {
         return builder
                 .given("SomeState")
-                .uponReceiving("get Student data with state")
+                .uponReceiving("get Student data with state  for provider")
                 .path("/myapp/student/Z123")
                 .method("GET")
                 .willRespondWith()

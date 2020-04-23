@@ -11,6 +11,11 @@
 
     <artifactId>consumer</artifactId>
 
+    <properties>
+        <pactBrokerUrl>${pactBrokerUrl}</pactBrokerUrl>
+        <pactBrokerToken>${pactBrokerToken}</pactBrokerToken>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -45,6 +50,18 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>au.com.dius</groupId>
+                <artifactId>pact-jvm-provider-maven</artifactId>
+                <version>4.0.0</version>
+                <configuration>
+                    <pactDirectory>../generated-pacts</pactDirectory> <!-- Defaults to ${project.build.directory}/pacts -->
+                    <pactBrokerUrl>${pactBrokerUrl}</pactBrokerUrl>
+                    <trimSnapshot>true</trimSnapshot> <!-- Defaults to false -->
+                    <pactBrokerToken>${pactBrokerToken}</pactBrokerToken> <!-- Replace TOKEN with the actual token -->
+                    <pactBrokerAuthenticationScheme>Bearer</pactBrokerAuthenticationScheme>
+                </configuration>
             </plugin>
         </plugins>
     </build>

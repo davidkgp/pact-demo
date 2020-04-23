@@ -78,7 +78,7 @@
       ]
     },
     {
-      "description": "get Student data with state",
+      "description": "get Student data with state  for provider",
       "request": {
         "method": "GET",
         "path": "/myapp/student/Z123"
