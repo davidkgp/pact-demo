@@ -12,11 +12,17 @@
     <artifactId>consumer</artifactId>
 
     <properties>
-        <pactBrokerUrl>${pactBrokerUrl}</pactBrokerUrl>
-        <pactBrokerToken>${pactBrokerToken}</pactBrokerToken>
+        <pactBrokerUrl>somevalue</pactBrokerUrl>
+        <pactBrokerToken>sometoken</pactBrokerToken>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
