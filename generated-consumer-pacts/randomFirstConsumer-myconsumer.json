@@ -1,0 +1,33 @@
+{
+  "provider": {
+    "name": "myconsumer"
+  },
+  "consumer": {
+    "name": "randomFirstConsumer"
+  },
+  "interactions": [
+    {
+      "description": "get Student data",
+      "request": {
+        "method": "GET",
+        "path": "/myconsumer/student/A123"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "rollId": "A123",
+          "fullName": "Tom Hanks",
+          "age": 12
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.8"
+    }
+  }
+}

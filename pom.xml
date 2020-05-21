@@ -26,18 +26,23 @@
         <pact.version>4.0.8</pact.version>
         <pact.provider.version>3.6.14</pact.provider.version>
         <test-container-version>1.14.1</test-container-version>
+        <stubber.version>1.5</stubber.version>
 
     </properties>
 
     <dependencyManagement>
         <dependencies>
 
+            <!-- https://mvnrepository.com/artifact/one.xingyi/pact-stubber -->
             <dependency>
-                <groupId>org.testcontainers</groupId>
-                <artifactId>testcontainers</artifactId>
-                <version>${test-container-version}</version>
+                <groupId>one.xingyi</groupId>
+                <artifactId>pact-stubber_2.12</artifactId>
+                <version>${stubber.version}</version>
                 <scope>test</scope>
             </dependency>
+
+
+
 
             <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-consumer-junit -->
             <dependency>
